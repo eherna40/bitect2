@@ -35,24 +35,25 @@ const tabletReducer = (state = initialState, action) => {
                 tablets: action.tablets
             }
 
-            case ON_SELECT_TABLET:
-                return {
-                    ...state,
-                    loading: true,
-                    error: false,
-                }
-            case ON_SELECT_TABLET_SUCCESS:
-                return {
-                    ...state,
-                    loading: false,
-                    error: true,
-                }
-            case ON_SELECT_TABLET_FAILED:
-                return {
-                    ...state,
-                    loading: false,
-                    error: false,
-                }
+        case ON_SELECT_TABLET:
+            return {
+                ...state,
+                loading: true,
+                error: false,
+            }
+        case ON_SELECT_TABLET_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: true,
+                tablet: action.tablet
+            }
+        case ON_SELECT_TABLET_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: false,
+            }
         default:
             return state
     }

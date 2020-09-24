@@ -1,5 +1,5 @@
 import { LOAD } from "../constants/load"
-import { DOWNLOAD_VIDEOS } from "../constants/videos"
+import { DOWNLOAD_VIDEOS, DOWNLOAD_VIDEOS_FAILED, DOWNLOAD_VIDEOS_SUCCESS } from "../constants/videos"
 
 const initialState = {
     loading: false,
@@ -18,6 +18,20 @@ const videosReducer = (state = initialState, action) => {
                 loading: true,
                 error: false,
                 videos: []
+            }
+        case DOWNLOAD_VIDEOS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: false,
+                videos: action.videos
+            }
+
+        case DOWNLOAD_VIDEOS_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: true,
             }
 
         default:

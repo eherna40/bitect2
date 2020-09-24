@@ -5,6 +5,6 @@ export const actionGetTablets = () => ({ type: GET_ALL_TABLETS })
 export const actionGetTabletsSuccess = (tablets) => ({ type: GET_ALL_TABLETS_SUCCESS, tablets })
 export const actionGetTabletsFailed = () => ({ type: GET_ALL_TABLETS_FAILED })
 
-export const actionOnSelectTablet = (id) => ({ type: ON_SELECT_TABLET, id })
+export const actionOnSelectTablet = (tablet) => ({ type: ON_SELECT_TABLET, tablet })
 export const actionOnSelectTabletSuccess = (tablet) => ({ type: ON_SELECT_TABLET_SUCCESS, tablet })
 export const actionOnSelectTabletFailed = () => ({ type: ON_SELECT_TABLET_FAILED })

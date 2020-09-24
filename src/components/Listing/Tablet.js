@@ -6,30 +6,32 @@ import { Colors, Flex, Paddings, Margins } from '../../infraestructure/Theme';
 import P from '../paragraph/P';
 import Span from '../paragraph/Span';
 
+
+const Item = ({ code, campaing, id, onPress }) => {
+    return <TouchableOpacity
+        onPress={onPress}
+        style={[styles.item, Flex.row, Flex.alignItemsCenter, Flex.justifySpaceBetween, Paddings.h10, Paddings.v10, Margins.r10, Margins.v10]}>
+        <View>
+            <Span text={code} fonts={true} />
+            <Span text={campaing} fonts={true} />
+        </View>
+        <Icon name='tablet1' size={40} color='black' />
+    </TouchableOpacity>
+}
+
+
 const Tablet = ({ data, onPress }) => {
 
-    const Item = ({ code, campaing, id }) => {
-        return <TouchableOpacity 
-        onPress={() => onPress(id)}
-        style={[styles.item, Flex.row, Flex.alignItemsCenter, Flex.justifySpaceBetween, Paddings.h10, Paddings.v10, Margins.r10]}>
-            <View>
-                <Span text={code} fonts={true} />
-                <Span text={campaing} fonts={true} />
-            </View>
-            <Icon name='tablet1' size={40} color='black' />
-        </TouchableOpacity>
-    }
 
     return (
         <FlatList
-        
             data={data}
             keyExtractor={(item) => item.code}
             contentContainerStyle={{ justifyContent: 'space-between' }}
             numColumns={4}
             initialNumToRender={2}
             renderItem={({ item }) => {
-                return <Item {...item} />
+                return <Item {...item} onPress={() => onPress(item)} />
             }}
         />
     )
@@ -38,7 +40,10 @@ const styles = StyleSheet.create({
     item: {
         height: 100,
         backgroundColor: Colors.lightBlue,
-        width: '20%'
+        width: '20%',
+        borderRadius: 6,
+        elevation: 4,
+
     }
 })
 

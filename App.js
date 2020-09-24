@@ -19,6 +19,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { navigationRef } from './src/infraestructure/services/RootNavigation';
 import SelectScreen from './src/screens/SelectScreen';
 import { useKeepAwake } from '@sayem314/react-native-keep-awake';
+import HomeScreen from './src/screens/HomeScreen';
+import Header from './src/components/Header';
 
 Sentry.init({
 	dsn: 'https://131d534f56ca4b9c850bcb51c9e9b794@o254139.ingest.sentry.io/5439121',
@@ -36,9 +38,9 @@ const App = () => {
 				<Stack.Navigator>
 					<Stack.Screen name="Load" component={LoadScreen} options={{ headerShown: false }} />
 					<Stack.Screen name="Select" component={SelectScreen} options={{ headerShown: false }} />
-					{/* <Stack.Screen name="Home" component={HomeScreen} options={{
+					<Stack.Screen name="Home" component={HomeScreen} options={{
 						header: () => <Header />
-					}} /> */}
+					}} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		</PersistGate>

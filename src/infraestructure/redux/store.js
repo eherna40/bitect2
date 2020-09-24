@@ -25,7 +25,7 @@ let middlewares = [];
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: []
+  whitelist: ['videosReducer', 'tabletReducer']
 }
 
 const persistedReducer = persistReducer(persistConfig, Reducers)
