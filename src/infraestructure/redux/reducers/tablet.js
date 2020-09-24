@@ -1,5 +1,5 @@
 import { LOAD } from "../constants/load"
-import { GET_ALL_TABLETS, GET_ALL_TABLETS_FAILED, GET_ALL_TABLETS_SUCCESS } from "../constants/tablet"
+import { GET_ALL_TABLETS, GET_ALL_TABLETS_FAILED, GET_ALL_TABLETS_SUCCESS, ON_SELECT_TABLET, ON_SELECT_TABLET_FAILED, ON_SELECT_TABLET_SUCCESS } from "../constants/tablet"
 
 const initialState = {
     loading: false,
@@ -34,6 +34,25 @@ const tabletReducer = (state = initialState, action) => {
                 error: false,
                 tablets: action.tablets
             }
+
+            case ON_SELECT_TABLET:
+                return {
+                    ...state,
+                    loading: true,
+                    error: false,
+                }
+            case ON_SELECT_TABLET_SUCCESS:
+                return {
+                    ...state,
+                    loading: false,
+                    error: true,
+                }
+            case ON_SELECT_TABLET_FAILED:
+                return {
+                    ...state,
+                    loading: false,
+                    error: false,
+                }
         default:
             return state
     }

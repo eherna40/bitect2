@@ -18,6 +18,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { navigationRef } from './src/infraestructure/services/RootNavigation';
 import SelectScreen from './src/screens/SelectScreen';
+import { useKeepAwake } from '@sayem314/react-native-keep-awake';
+
 Sentry.init({
 	dsn: 'https://131d534f56ca4b9c850bcb51c9e9b794@o254139.ingest.sentry.io/5439121',
 });
@@ -25,6 +27,7 @@ Sentry.init({
 const Stack = createStackNavigator();
 
 const App = () => {
+	useKeepAwake();
 	return <Provider store={store}>
 		<PersistGate loading={null} persistor={persistor}>
 			<StatusBar
